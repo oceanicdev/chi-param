@@ -3,7 +3,6 @@ package param
 import (
 	"context"
 	"fmt"
-	"github.com/cznic/mathutil"
 	"github.com/go-chi/chi"
 	"math"
 	"net/http"
@@ -63,7 +62,7 @@ func TestStringErr(t *testing.T) {
 }
 
 func TestInt(t *testing.T) {
-	want := mathutil.MaxInt
+	want := 2301342
 	maxValue := strconv.Itoa(want)
 
 	req, key := newParamRequest(t, maxValue)
@@ -804,14 +803,14 @@ func TestQueryStringErr(t *testing.T) {
 }
 
 func TestQueryInt(t *testing.T) {
-	req := newQueryRequest(t, fmt.Sprintf("age=%d", mathutil.MaxInt))
+	want := 24234234
+	req := newQueryRequest(t, fmt.Sprintf("age=%d", want))
 
 	got, err := QueryInt(req, "age")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	want := mathutil.MaxInt
 	if want != got {
 		t.Fatalf("want %v, got %v", want, got)
 	}
