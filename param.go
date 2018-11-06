@@ -5,6 +5,7 @@ import (
 	"github.com/go-chi/chi"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 // ErrInvalidParam is an error for not presented or invalid parameter
@@ -296,6 +297,11 @@ func QueryFloat32Array(r *http.Request, key string) ([]float32, error) {
 	}
 	out := make([]float32, len(values))
 	for index, value := range values {
+		// replace + stripped out during url parse stage
+		if strings.Contains(value, " ") {
+			value = strings.Replace(value, " ", "+", 1)
+		}
+
 		v, err := strconv.ParseFloat(value, 32)
 		if err != nil {
 			return nil, err
@@ -313,6 +319,11 @@ func QueryFloat64Array(r *http.Request, key string) ([]float64, error) {
 	}
 	out := make([]float64, len(values))
 	for index, value := range values {
+		// replace + stripped out during url parse stage
+		if strings.Contains(value, " ") {
+			value = strings.Replace(value, " ", "+", 1)
+		}
+
 		v, err := strconv.ParseFloat(value, 64)
 		if err != nil {
 			return nil, err
