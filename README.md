@@ -34,7 +34,8 @@ import (
 
 func main() {
 	r := chi.NewMux()
-	r.Get("/{id}/?code=1&code=2", func(w http.ResponseWriter, r *http.Request) {
+	r.Get("/{id}", func(w http.ResponseWriter, r *http.Request) {
+		// call http://localhost:8080/1?code=1&code2
 		id, _ := param.Int(r, "id")                // returns value from path
 		code, _ := param.QueryInt(r, "code")       // returns first value
 		codes, _ := param.QueryIntArray(r, "code") // returns all values
