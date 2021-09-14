@@ -3,13 +3,14 @@ package param
 import (
 	"context"
 	"fmt"
-	"github.com/go-chi/chi"
 	"math"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
 	"strconv"
 	"testing"
+
+	"github.com/go-chi/chi/v5"
 )
 
 func newParamRequest(t *testing.T, value string) (*http.Request, string) {
