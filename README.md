@@ -26,7 +26,7 @@ An example described below is one of the use cases.
 package main
 
 import (
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/oceanicdev/chi-param"
 	"log"
 	"net/http"
