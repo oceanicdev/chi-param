@@ -2,10 +2,11 @@ package param
 
 import (
 	"errors"
-	"github.com/go-chi/chi"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/go-chi/chi/v5"
 )
 
 // ErrInvalidParam is an error for not presented or invalid parameter
