@@ -1,4 +1,4 @@
-module github.com/jeffreydwalter/chi-param
+module github.com/oceanicdev/chi-param
 
 go 1.17
 
